@@ -32,6 +32,8 @@ public class GameMaster
         Console.WriteLine("Compass test:");
         board.Compass();
         //Console.Write($"\n{board.GameMap[0, 0]}");
+        Console.Write($"\nTotal Row Tiles: {board.GameMap.GetLength(0)}");
+        Console.Write($"\nTotal Col Tiles: {board.GameMap.GetLength(1)}");
         Console.Write($"\nTotal Game Tiles: {board.GameMap.Length}");
         Console.WriteLine($"\nUsername: {PlayerID.Name}");
     }
@@ -57,6 +59,11 @@ public class GameBoard
         Console.WriteLine("               |              ");
         Console.WriteLine("             SOUTH            ");
     }
+
+    public void BoundryChecker()
+    {
+        //Add boundry checking logic
+    }
 }
 public class Player
 {
@@ -69,5 +76,6 @@ public class Player
     }
 
 }
-
-
+//Not sure on these
+enum RoomType { Regular, Fountain, Entry, Wall}
+enum Direction { North, South, East, West}
