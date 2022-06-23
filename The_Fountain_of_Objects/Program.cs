@@ -77,7 +77,7 @@ public class GameBoard<TBoard>
         //Add special items to room
         BoardTracker.GameMap[0, 0] = RoomType.Entry;
 
-        //Add fountain tag to possible 4 locations
+        //Add fountain tag to possible 6 locations
         int RndRow = Diceroll.Next(1, 3);
         int RndCol = Diceroll.Next(1, 3);
         BoardTracker.GameMap[RndRow, RndCol] = RoomType.Fountain;
