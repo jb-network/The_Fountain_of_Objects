@@ -21,8 +21,8 @@ public class GameMaster
     public void NewGame()
     {
         //Build Board
-        GameBoard board = new GameBoard(4, 4);
-        GameBoard boardTracker = new GameBoard(4, 4);
+        GameBoard<int> board = new GameBoard<int>(4, 4);
+        GameBoard<string> boardTracker = new GameBoard<string>(4, 4);
 
         //Set player name
         Console.WriteLine("Please Enter your name: ");
@@ -47,17 +47,17 @@ public class GameMaster
 
     }
 }
-public class GameBoard
+public class GameBoard<TBoard>
 {
     public int Rows { get; }
     public int Columns { get; }
-    public readonly int[,] GameMap;
+    public readonly TBoard[,] GameMap;
     
     public GameBoard(int rows, int columns)
     {
         Rows = rows;
         Columns = columns;
-        GameMap = new int[rows, columns];        
+        GameMap = new TBoard[rows, columns];        
     }
 
 
