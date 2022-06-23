@@ -20,13 +20,23 @@ public class GameMaster
 {
     public void NewGame()
     {
-        //Test set up
+        //Build Board
+        GameBoard board = new GameBoard(4, 4);
+        GameBoard boardTracker = new GameBoard(4, 4);
+
+        //Set player name
         Console.WriteLine("Please Enter your name: ");
         string PlayerName = Console.ReadLine();
+
+        //Set Starting Location
+        
+        //Build player object 
         Player PlayerID = new Player(PlayerName);
-        GameBoard board = new GameBoard(3, 3);
+        
+        
         Console.Clear();
-        //Test final set up
+                     
+        //Test set up
         Console.WriteLine("Compass test:");
         board.Compass();
         //Console.Write($"\n{board.GameMap[0, 0]}");
@@ -34,6 +44,7 @@ public class GameMaster
         Console.Write($"\nTotal Col Tiles: {board.GameMap.GetLength(1)}");
         Console.Write($"\nTotal Game Tiles: {board.GameMap.Length}");
         Console.WriteLine($"\nUsername: {PlayerID.Name}");
+
     }
 }
 public class GameBoard
@@ -41,13 +52,14 @@ public class GameBoard
     public int Rows { get; }
     public int Columns { get; }
     public readonly int[,] GameMap;
-
+    
     public GameBoard(int rows, int columns)
     {
         Rows = rows;
         Columns = columns;
-        GameMap = new int[rows, columns];
+        GameMap = new int[rows, columns];        
     }
+
 
     public void Compass()
     {        
@@ -66,14 +78,18 @@ public class GameBoard
 public class Player
 {
     public string Name { get; }
-    public int CurrentLocation { get; }
+    public CurrentLocation CurrentLocation { get; }
 
     public Player(string PlayerName)
     {
         Name = PlayerName;
+        
     }
 
+
 }
+
+public record CurrentLocation(int Row, int Column);
 //Not sure on these
-enum RoomType { Regular, Fountain, Entry, Wall}
-enum Direction { North, South, East, West}
+public enum RoomType { Regular, Fountain, Entry}
+public enum Direction { North, South, East, West}
