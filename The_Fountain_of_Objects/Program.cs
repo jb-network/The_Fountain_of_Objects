@@ -1,5 +1,3 @@
-﻿
-
 /*
 // Future user input for expansion
 //Test Gameboard deployment
