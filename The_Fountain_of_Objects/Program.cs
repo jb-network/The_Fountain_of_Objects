@@ -21,6 +21,8 @@ public class GameMaster
     public void NewGame()
     {
         //Build Board
+        //Plan: Use board to track board movement
+        //Plan: User boardtracker to keep track of Tags\Enums
         GameBoard<int> board = new GameBoard<int>(4, 4);
         GameBoard<string> boardTracker = new GameBoard<string>(4, 4);
 
