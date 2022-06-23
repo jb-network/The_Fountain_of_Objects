@@ -21,10 +21,12 @@ public class GameMaster
     public void NewGame()
     {
         //Build Board
+        Random DiceRoll = new Random();
         //Plan: Use board to track board movement
         //Plan: User boardtracker to keep track of Tags\Enums
         GameBoard<int> board = new GameBoard<int>(4, 4);
-        GameBoard<string> boardTracker = new GameBoard<string>(4, 4);
+        GameBoard<RoomType> boardTracker = new GameBoard<RoomType>(4, 4);
+        boardTracker.TagRooms(boardTracker, DiceRoll);
 
         //Set player name
         Console.WriteLine("Please Enter your name: ");
@@ -60,6 +62,26 @@ public class GameBoard<TBoard>
         Rows = rows;
         Columns = columns;
         GameMap = new TBoard[rows, columns];        
+    }
+
+    public void TagRooms(GameBoard<RoomType> BoardTracker, Random Diceroll)
+    {
+        //build out game room
+        for (int Row = 0; Row < BoardTracker.GameMap.GetLength(0); Row++)
+        {
+            for (int Col = 0; Col < BoardTracker.GameMap.GetLength(1); Col++)
+            {
+                BoardTracker.GameMap[Row, Col] = RoomType.Regular;
+            }
+        }
+        //Add special items to room
+        BoardTracker.GameMap[0, 0] = RoomType.Entry;
+
+        //Add fountain tag to possible 4 locations
+        int RndRow = Diceroll.Next(1, 3);
+        int RndCol = Diceroll.Next(1, 3);
+        BoardTracker.GameMap[RndRow, RndCol] = RoomType.Fountain;
+        
     }
 
 
