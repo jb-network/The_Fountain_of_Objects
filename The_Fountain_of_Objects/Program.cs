@@ -1,19 +1,4 @@
-/*
-// Future user input for expansion
-//Test Gameboard deployment
-Console.WriteLine("Enter test X...(int,int)");
-int X = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Enter test Y...(int,int)");
-int Y = Convert.ToInt32(Console.ReadLine());
-
-GameBoard board = new GameBoard(X, Y);
-Console.Write($"{board.GameMap[0,0]}");
-*/
-
-//GameBoard board = new GameBoard(3, 3);
-//Console.Write($"{board.GameMap[0,0]}");
-
-
+//Set up new game
 new GameMaster().NewGame();
 
 public class GameMaster
@@ -24,7 +9,7 @@ public class GameMaster
         Random DiceRoll = new Random();
         //Plan: Use board to track board movement
         //Plan: User boardtracker to keep track of Tags\Enums
-        GameBoard<int> board = new GameBoard<int>(4, 4);
+        GameBoard<string> board = new GameBoard<string>(4, 4);
         GameBoard<RoomType> boardTracker = new GameBoard<RoomType>(4, 4);
         boardTracker.TagRooms(boardTracker, DiceRoll);
 
@@ -34,10 +19,17 @@ public class GameMaster
 
         //Set Starting Location
         
+        
         //Build player object 
         Player PlayerID = new Player(PlayerName);
-        
-        
+        //Set Starting Location
+        PlayerID.SetPlayerStart(board, PlayerID);
+
+        //Move Player Test
+        PlayerID.MovePlayer(board, boardTracker, PlayerID);
+
+
+
         Console.Clear();
                      
         //Test set up
@@ -81,11 +73,9 @@ public class GameBoard<TBoard>
         int RndRow = Diceroll.Next(1, 3);
         int RndCol = Diceroll.Next(1, 3);
         BoardTracker.GameMap[RndRow, RndCol] = RoomType.Fountain;
-        
     }
 
-
-    public void Compass()
+        public void Compass()
     {        
         Console.WriteLine("             NORTH            ");
         Console.WriteLine("               |              ");
@@ -102,12 +92,31 @@ public class GameBoard<TBoard>
 public class Player
 {
     public string Name { get; }
-    public CurrentLocation CurrentLocation { get; }
-
+   
     public Player(string PlayerName)
     {
         Name = PlayerName;
+    }
+    public void SetPlayerStart(GameBoard<string> board, Player PlayerID)
+    {
+        board.GameMap[0, 0] = PlayerID.Name;
         
+        
+    }
+    public void MovePlayer(GameBoard<string> board, GameBoard<RoomType> boardtracker, Player PlayerID)
+    {
+        Console.WriteLine("ENTER TEST MOVE:");
+        Console.WriteLine("Test Tips: 1) North, 2)South, 3)East or 4)West (Only South will work for now)");
+        int UserMoveChoice = Convert.ToInt16(Console.ReadLine());
+        Direction UserDirection = UserMoveChoice switch
+        {
+            1 => Direction.North,
+            2 => Direction.South,
+            3 => Direction.East,
+            4 => Direction.West,
+        };
+        Console.WriteLine(UserDirection);
+        Console.ReadKey();
     }
 
 
@@ -117,3 +126,19 @@ public record CurrentLocation(int Row, int Column);
 //Not sure on these
 public enum RoomType { Regular, Fountain, Entry}
 public enum Direction { North, South, East, West}
+
+
+/*
+// Future user input for expansion
+//Test Gameboard deployment
+Console.WriteLine("Enter test X...(int,int)");
+int X = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter test Y...(int,int)");
+int Y = Convert.ToInt32(Console.ReadLine());
+
+GameBoard board = new GameBoard(X, Y);
+Console.Write($"{board.GameMap[0,0]}");
+*/
+
+//GameBoard board = new GameBoard(3, 3);
+//Console.Write($"{board.GameMap[0,0]}");
