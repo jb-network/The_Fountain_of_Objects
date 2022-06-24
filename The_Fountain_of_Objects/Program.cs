@@ -18,16 +18,18 @@ public class GameMaster
         string PlayerName = Console.ReadLine();
 
         //Set Starting Location
-        
-        
+
+
         //Build player object 
         Player PlayerID = new Player(PlayerName);
         //Set Starting Location
-        PlayerID.SetPlayerStart(board, PlayerID);
+        int[] CurrentPlayerLocation = PlayerID.StartPlayerLocation();
 
-        //Move Player Test
-        PlayerID.MovePlayer(board, boardTracker, PlayerID);
-
+        while (true)
+        {
+            //Move Player Test
+            PlayerID.MovePlayer(board, boardTracker, PlayerID, CurrentPlayerLocation);
+        }
 
 
         Console.Clear();
@@ -92,18 +94,26 @@ public class GameBoard<TBoard>
 public class Player
 {
     public string Name { get; }
+
    
     public Player(string PlayerName)
     {
         Name = PlayerName;
     }
-    public void SetPlayerStart(GameBoard<string> board, Player PlayerID)
+    public int[] StartPlayerLocation()
     {
-        board.GameMap[0, 0] = PlayerID.Name;
-        
+        int PlayerRow = 0;
+        int PlayerCol = 0;
+        int[] PlayerTracker = new int[2] { PlayerRow, PlayerCol };
+        return PlayerTracker;
+    }
+    
+    public void UpdatePlayerLocation(GameBoard<string> board, Player PlayerID)
+    {
         
     }
-    public void MovePlayer(GameBoard<string> board, GameBoard<RoomType> boardtracker, Player PlayerID)
+
+    public void MovePlayer(GameBoard<string> board, GameBoard<RoomType> boardtracker, Player PlayerID, int[] CurrentPlayerLocation)
     {
         Console.WriteLine("ENTER TEST MOVE:");
         Console.WriteLine("Test Tips: 1) North, 2)South, 3)East or 4)West (Only South will work for now)");
@@ -115,6 +125,13 @@ public class Player
             3 => Direction.East,
             4 => Direction.West,
         };
+         
+        if (UserDirection == Direction.South)
+        {
+            CurrentPlayerLocation[0] += 1;
+            
+  
+        }
         Console.WriteLine(UserDirection);
         Console.ReadKey();
     }
