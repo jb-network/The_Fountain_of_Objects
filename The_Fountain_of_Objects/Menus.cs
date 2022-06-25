@@ -1,4 +1,4 @@
-﻿
+
 namespace The_Fountain_of_Objects
 {
     internal class Menus
@@ -15,8 +15,28 @@ namespace The_Fountain_of_Objects
                 UserSelection = Convert.ToInt16(Console.ReadLine());
             }while (UserSelection < 0 && UserSelection < 3);
             return UserSelection;
+        }
 
-  
+        public string GetPlayerName()
+        {
+            string GetPlayerName;
+            Console.WriteLine("Please enter your name");
+            GetPlayerName = Console.ReadLine();
+            if (GetPlayerName == null) GetPlayerName = "Player";
+            return GetPlayerName;
+
+        }
+
+        public int GetPlayerMove()
+        {
+            int GetMove;
+            Console.WriteLine("Please select a Direction to move");
+            Console.WriteLine("1 - Move North");
+            Console.WriteLine("2 - Move South");
+            Console.WriteLine("3 - Move East");
+            Console.WriteLine("4 - Move West");
+            GetMove = Convert.ToInt16(Console.ReadLine());
+            return GetMove;
         }
     }
 }
