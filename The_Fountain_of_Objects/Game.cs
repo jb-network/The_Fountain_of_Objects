@@ -37,11 +37,15 @@ namespace The_Fountain_of_Objects
 
             //Build Player object
             Player GamePlayer = new Player(PlayerName);
-            
+
+            //Build Tracker object, intialize to location 0,0
+            GameTracker Tracker = new GameTracker(0, 0, GamePlayer, MoveBoard);
+
+
             //End of set up
-            
+
             //GameLoop - test movment loop
-            while (true)
+            //while (true)
             {
                 int UserMove = GameMenus.GetPlayerMove();
                 Direction MovePlayer = UserMove switch
