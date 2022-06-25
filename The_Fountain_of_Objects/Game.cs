@@ -55,7 +55,7 @@ namespace The_Fountain_of_Objects
                     3 => Direction.East,
                     4 => Direction.West,
                 };
-                
+                //NEXT Pass direction to the MOVEPLAYER MethodUnder Tracker
             }
 
 
