@@ -1,4 +1,4 @@
-﻿
+
 namespace The_Fountain_of_Objects
 {
     public class GameBoard<TSetBoard>
@@ -48,4 +48,3 @@ namespace The_Fountain_of_Objects
 
     }
 }
-
