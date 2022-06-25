@@ -5,19 +5,23 @@ namespace The_Fountain_of_Objects
     {
         public void NewGame() 
         {
-            
+            //Random object for program use
             Random DiceRoll = new Random();
+            
+            //Menu object created
             Menus GameMenus = new Menus();
             
+            //Menu to get user input for the size of the board
+            int UserSelection = GameMenus.GameBoardSetupMenu();
             
-           int UserSelection = GameMenus.GameBoardSetupMenu();
-
+            //Build an array to track the players location on the board
             GameBoard<string> MoveBoard = UserSelection switch
             {
                 1 => new GameBoard<string>(4, 4),
                 2 => new GameBoard<string>(6, 6),
                 3 => new GameBoard<string>(8, 8),
             };
+            // An array to tag rooms layered on top of Moveboard
             GameBoard<RoomType> TagBoard = UserSelection switch
             {
                 1 => new GameBoard<RoomType>(4, 4),
@@ -25,18 +29,18 @@ namespace The_Fountain_of_Objects
                 3 => new GameBoard<RoomType>(8, 8),
             };
 
+            //intalize roomtype tags to array elements 
             GameBoard<RoomType>.TagLocations(TagBoard, DiceRoll);
 
+            //Menu to get user name from the Player
             string PlayerName = GameMenus.GetPlayerName();
+
+            //Build Player object
             Player GamePlayer = new Player(PlayerName);
-            //var SetTracker= Player.SetPlayerLocation(MoveBoard, GamePlayer);
-
-
+            
             //End of set up
             
-
-
-            //GameLoop
+            //GameLoop - test movment loop
             while (true)
             {
                 int UserMove = GameMenus.GetPlayerMove();
@@ -47,7 +51,7 @@ namespace The_Fountain_of_Objects
                     3 => Direction.East,
                     4 => Direction.West,
                 };
-                var UpdateTracker = Player.UpdatePlayerLocation(SetTracker.Item1, SetTracker.Item2, MovePlayer, GamePlayer, MoveBoard);
+                
             }
 
 
@@ -59,8 +63,7 @@ namespace The_Fountain_of_Objects
 
             //New Idea Testing Area
             Console.WriteLine("TESTING AREA");
-            //var tracker = Player.LocationTracker(NewGame, MoveBoard, GamePlayer);
-            Console.WriteLine($"{tracker.Item1}");
+
             
 
             Console.ReadKey();
