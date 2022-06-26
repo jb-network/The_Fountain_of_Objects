@@ -58,12 +58,25 @@ namespace The_Fountain_of_Objects
             while (x > 0) //CHANGE TO WHILE TRUE AFTER TESTING
             {
                 do {
+                    //Checks for moves that will go outside of the array bounds
                     SelectedDirection = GameMenus.GetPlayerMove();
                     LegalMove = Tracker.LegalMoveCheck(SelectedDirection, PlayerTracker, MoveBoard, Dialog);
                 } while (LegalMove == false);
 
+                //Moves player
                 PlayerTracker = Tracker.UpdatePlayerLocation(SelectedDirection, MoveBoard, GamePlayer);
                 Dialog.MoveMessage(SelectedDirection);
+                
+                //Room Check - tags for Room type
+                RoomType TagInput = TagBoard.CheckRoomType(TagBoard, PlayerTracker);
+
+                //RoomType Actions
+                if (TagInput == RoomType.Entry)
+                {
+                    DialogTree.EntranceMessage();
+                    GameMenus.EntranceChoice();
+                }
+                
                 Console.WriteLine("Press any key to make your next move");
                 Console.ReadKey();
                 Console.Clear();

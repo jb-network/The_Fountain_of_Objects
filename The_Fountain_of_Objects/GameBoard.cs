@@ -45,6 +45,15 @@ namespace The_Fountain_of_Objects
             }
         }
 
+        internal Game.RoomType CheckRoomType(GameBoard<Game.RoomType> tagBoard, (int PlayerRow, int PlayerCol) playerTracker)
+        {
+            if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Entry)
+            {
+                
+                return Game.RoomType.Entry;
 
+            }
+            else return Game.RoomType.Regular; //REMOVE
+        }
     }
 }

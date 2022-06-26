@@ -19,6 +19,10 @@ namespace The_Fountain_of_Objects
         {
             Console.WriteLine($"You carefully move to the {SelectedDirection}");
         }
-            
+
+        public static void EntranceMessage()
+        {
+            Console.WriteLine("You see a small amout of sunlight peaking into this part of the cave from around the corner.  This must be the cave exit.");            
+        }
     }
 }

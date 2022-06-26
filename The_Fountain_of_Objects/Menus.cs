@@ -48,5 +48,32 @@ namespace The_Fountain_of_Objects
             return UserMove;
 
         }
+
+        internal void EntranceChoice()
+        {
+            int EntChoice;
+            do
+            {
+                Console.WriteLine("Press 1 - to Exit the cave");
+                Console.WriteLine("Press 2 - to keep exploring the cave");
+                EntChoice = Convert.ToInt16(Console.ReadLine());
+                if (EntChoice != 1 && EntChoice != 2)
+                {
+                    Console.WriteLine("The choice you selected is not valid");
+                    Console.WriteLine("Press any key to try again");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+            } while (EntChoice != 1 && EntChoice != 2);
+            if (EntChoice == 1)
+            {
+                Console.WriteLine("MAY ADD WIN/LOSE CHECK");
+                System.Environment.Exit(1);
+            }
+            else
+            {
+                Console.WriteLine("Have fun exploring more");
+            }
+        }
     }
 }

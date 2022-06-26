@@ -69,12 +69,12 @@ namespace The_Fountain_of_Objects
         internal bool LegalMoveCheck(Game.Direction SelectedDirection, (int PlayerRow, int PlayerCol) playerTracker, GameBoard<string> MoveBoard, DialogTree Dialog)
         {
 
-            if (SelectedDirection == Game.Direction.North && PlayerTracker.PlayerRow == 0)
+            if (SelectedDirection == Game.Direction.North && PlayerTracker.PlayerCol == 0)
             {
                 Dialog.WallMessage();
                 return false;
             }
-            else if (SelectedDirection == Game.Direction.West && PlayerTracker.PlayerCol == 0)
+            else if (SelectedDirection == Game.Direction.West && PlayerTracker.PlayerRow == 0)
             {
                 Dialog.WallMessage();
                 return false;
