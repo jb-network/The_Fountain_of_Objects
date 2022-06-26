@@ -10,8 +10,15 @@ namespace The_Fountain_of_Objects
     {
         public void WallMessage()
         {
-            Console.WriteLine("A great cave wall stands in your path, you cannot move in that direction");
-            Console.WriteLine("Please make a different selection");
+            Console.WriteLine("A massive cave wall stands in your path, you cannot move in that direction");
+            Console.WriteLine("Press any key to make a different selection");
+            Console.ReadKey();
+            Console.Clear();
         }
+        public void MoveMessage(Game.Direction SelectedDirection)
+        {
+            Console.WriteLine($"You carefully move to the {SelectedDirection}");
+        }
+            
     }
 }

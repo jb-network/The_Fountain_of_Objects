@@ -13,29 +13,29 @@ namespace The_Fountain_of_Objects
                 Console.WriteLine(" 2 - Medium Map (6x6)");
                 Console.WriteLine(" 3 - Large Map (8x8)");
                 UserSelection = Convert.ToInt16(Console.ReadLine());
+                Console.Clear();
             }while (UserSelection < 0 && UserSelection < 3);
             return UserSelection;
         }
-
         public string GetPlayerName()
         {
             string GetPlayerName;
             Console.WriteLine("Please enter your name");
             GetPlayerName = Console.ReadLine();
+            Console.Clear();
             if (GetPlayerName == null || GetPlayerName == "") GetPlayerName = "Player";
             return GetPlayerName;
 
         }
-
         public Game.Direction GetPlayerMove()
         {
-            int GetMove;
+            
             Console.WriteLine("Please select a Direction to move");
             Console.WriteLine("1 - Move North");
             Console.WriteLine("2 - Move South");
             Console.WriteLine("3 - Move East");
             Console.WriteLine("4 - Move West");
-            GetMove = Convert.ToInt16(Console.ReadLine());
+            int GetMove = Convert.ToInt16(Console.ReadLine());
             
             Game.Direction UserMove = GetMove switch
             {

@@ -66,9 +66,9 @@ namespace The_Fountain_of_Objects
             }
 
         }
-
         internal bool LegalMoveCheck(Game.Direction SelectedDirection, (int PlayerRow, int PlayerCol) playerTracker, GameBoard<string> MoveBoard, DialogTree Dialog)
         {
+
             if (SelectedDirection == Game.Direction.North && PlayerTracker.PlayerRow == 0)
             {
                 Dialog.WallMessage();
@@ -79,12 +79,12 @@ namespace The_Fountain_of_Objects
                 Dialog.WallMessage();
                 return false;
             }
-            else if (SelectedDirection == Game.Direction.South && PlayerTracker.PlayerRow == MoveBoard.Map.GetLength(0))
+            else if (SelectedDirection == Game.Direction.South && PlayerTracker.PlayerCol == MoveBoard.Map.GetLength(1)-1)
             {
                 Dialog.WallMessage();
                 return false;
             }
-            else if (SelectedDirection == Game.Direction.East && PlayerTracker.PlayerCol == MoveBoard.Map.GetLength(1))
+            else if (SelectedDirection == Game.Direction.East && PlayerTracker.PlayerRow == MoveBoard.Map.GetLength(0)-1)
             {
                 Dialog.WallMessage();
                 return false;

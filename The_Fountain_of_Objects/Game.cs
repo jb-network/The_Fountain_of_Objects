@@ -54,17 +54,20 @@ namespace The_Fountain_of_Objects
             //End of set up
 
             //GameLoop - test movment loop
-            int x = 3;
-            while (x > 0)
-            {                               
-                while (LegalMove = false)
-                {
+            int x = 9; //REMOVE AFTER TESTING
+            while (x > 0) //CHANGE TO WHILE TRUE AFTER TESTING
+            {
+                do {
                     SelectedDirection = GameMenus.GetPlayerMove();
                     LegalMove = Tracker.LegalMoveCheck(SelectedDirection, PlayerTracker, MoveBoard, Dialog);
-                }
+                } while (LegalMove == false);
+
                 PlayerTracker = Tracker.UpdatePlayerLocation(SelectedDirection, MoveBoard, GamePlayer);
-                Console.WriteLine($"{PlayerTracker}");
-                x--;
+                Dialog.MoveMessage(SelectedDirection);
+                Console.WriteLine("Press any key to make your next move");
+                Console.ReadKey();
+                Console.Clear();
+                x--; //REMOVE AFTER TESTING
             }
 
             //New Idea Testing Area
