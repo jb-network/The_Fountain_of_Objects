@@ -49,7 +49,7 @@ namespace The_Fountain_of_Objects
             while (x > 0)
             {
                 Direction SelectedDirection = GameMenus.GetPlayerMove();
-                Console.WriteLine(SelectedDirection);
+                //Legal Move check here Pass current Player Location to Method and Check for out of bounds:
                 Tracker.UpdatePlayerLocation(SelectedDirection, MoveBoard, GamePlayer);
                 x--;
             }
