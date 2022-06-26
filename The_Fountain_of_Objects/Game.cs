@@ -5,6 +5,13 @@ namespace The_Fountain_of_Objects
     {
         public void NewGame() 
         {
+            //Var List
+            Direction SelectedDirection;
+            bool LegalMove = false;
+
+            //Dialog object created;
+            DialogTree Dialog = new DialogTree();
+
             //Random object for program use
             Random DiceRoll = new Random();
             
@@ -39,7 +46,9 @@ namespace The_Fountain_of_Objects
             Player GamePlayer = new Player(PlayerName);
 
             //Build Tracker object, intialize to location 0,0
-            GameTracker Tracker = new GameTracker(0, 0, GamePlayer, MoveBoard);
+            (int PlayerRow, int PlayerCol) PlayerTracker = (0,0);
+            GameTracker Tracker = new GameTracker(0, 0, GamePlayer, MoveBoard, PlayerTracker);
+
 
 
             //End of set up
@@ -47,19 +56,16 @@ namespace The_Fountain_of_Objects
             //GameLoop - test movment loop
             int x = 3;
             while (x > 0)
-            {
-                Direction SelectedDirection = GameMenus.GetPlayerMove();
-                //Legal Move check here Pass current Player Location to Method and Check for out of bounds:
-                Tracker.UpdatePlayerLocation(SelectedDirection, MoveBoard, GamePlayer);
+            {                               
+                while (LegalMove = false)
+                {
+                    SelectedDirection = GameMenus.GetPlayerMove();
+                    LegalMove = Tracker.LegalMoveCheck(SelectedDirection, PlayerTracker, MoveBoard, Dialog);
+                }
+                PlayerTracker = Tracker.UpdatePlayerLocation(SelectedDirection, MoveBoard, GamePlayer);
+                Console.WriteLine($"{PlayerTracker}");
                 x--;
             }
-
-
-            //Main Testing Area
-            Console.WriteLine(MoveBoard.Map.Length);
-            Console.WriteLine(TagBoard.Map.Length);
-            Console.WriteLine(GamePlayer.PlayerName);
-            Console.ReadKey();
 
             //New Idea Testing Area
             Console.WriteLine("Test Break Point Here");
@@ -68,7 +74,7 @@ namespace The_Fountain_of_Objects
 
             
             
-            //End of set up
+
             
 
         }
