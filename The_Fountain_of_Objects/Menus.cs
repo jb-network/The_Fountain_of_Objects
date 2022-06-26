@@ -81,6 +81,7 @@ namespace The_Fountain_of_Objects
             int FoutainChoice;
             do
             {
+                
                 Console.WriteLine("\n*******************************************************");
                 Console.WriteLine($"The Foutain is currently {GameFoutain.FountainStatus}");
                 Console.WriteLine("*******************************************************");

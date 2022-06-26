@@ -17,7 +17,7 @@ namespace The_Fountain_of_Objects
         }
         public void MoveMessage(Game.Direction SelectedDirection)
         {
-            Console.WriteLine($"You carefully move to the {SelectedDirection}");
+            Console.WriteLine($"You carefully move {SelectedDirection} to the next room");
         }
 
         public static void EntranceMessage()
@@ -38,7 +38,7 @@ namespace The_Fountain_of_Objects
             else
             {
                 Console.WriteLine();
-                Console.WriteLine("You hear runsihg waters center from the Foutain of Objects");
+                Console.WriteLine("You hear rushing waters center from the Foutain of Objects");
                 Console.WriteLine("You look at the foutain, and it appears to be turned on");
                 Console.WriteLine("Now you just need to find your way back to the cave enterance");
                 Console.WriteLine();
