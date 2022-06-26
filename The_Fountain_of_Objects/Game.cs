@@ -62,7 +62,7 @@ namespace The_Fountain_of_Objects
             Console.ReadKey();
 
             //New Idea Testing Area
-            Console.WriteLine("TESTING AREA");
+            Console.WriteLine("Test Break Point Here");
 
             
 
