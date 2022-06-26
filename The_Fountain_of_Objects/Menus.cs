@@ -22,7 +22,7 @@ namespace The_Fountain_of_Objects
             string GetPlayerName;
             Console.WriteLine("Please enter your name");
             GetPlayerName = Console.ReadLine();
-            if (GetPlayerName == null) GetPlayerName = "Player";
+            if (GetPlayerName == null || GetPlayerName == "") GetPlayerName = "Player";
             return GetPlayerName;
 
         }
