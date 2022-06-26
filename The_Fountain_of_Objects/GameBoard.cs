@@ -27,8 +27,8 @@ namespace The_Fountain_of_Objects
 
             if (TagBoard.Map.Length == 16)
             {
-                int RndRow = DiceRoll.Next(2, 3);
-                int RndCol = DiceRoll.Next(2, 3);
+                int RndRow = DiceRoll.Next(0, 0); //set back to 2,3
+                int RndCol = DiceRoll.Next(1, 1);
                 TagBoard.Map[RndRow, RndCol] = Game.RoomType.Fountain;
             }
             else if (TagBoard.Map.Length == 36)
@@ -53,6 +53,11 @@ namespace The_Fountain_of_Objects
                 return Game.RoomType.Entry;
 
             }
+            else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Fountain) 
+            {
+                return Game.RoomType.Fountain;
+            }
+                
             else return Game.RoomType.Regular; //REMOVE
         }
     }

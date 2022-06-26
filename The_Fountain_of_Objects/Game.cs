@@ -9,6 +9,9 @@ namespace The_Fountain_of_Objects
             Direction SelectedDirection;
             bool LegalMove = false;
 
+            //Foutain object created;
+            Fountain GameFoutain = new Fountain(FountainStatus.disabled);
+
             //Dialog object created;
             DialogTree Dialog = new DialogTree();
 
@@ -76,6 +79,12 @@ namespace The_Fountain_of_Objects
                     DialogTree.EntranceMessage();
                     GameMenus.EntranceChoice();
                 }
+                else if (TagInput == RoomType.Fountain)
+                {
+                    DialogTree.FoutainRoom(GameFoutain);
+                    GameMenus.FoutainChoice(GameFoutain, Dialog);
+
+                }
                 
                 Console.WriteLine("Press any key to make your next move");
                 Console.ReadKey();
@@ -96,6 +105,7 @@ namespace The_Fountain_of_Objects
         }
         public enum RoomType { Regular, Fountain, Entry }
         public enum Direction { North, South, East, West}
+        public enum FountainStatus { enabled, disabled }
 
     }
 
