@@ -19,5 +19,38 @@ namespace The_Fountain_of_Objects
             Player = GamePlayer.PlayerName;
             MoveBoard.Map[Row, Col] = Player;
         }
+
+        internal void UpdatePlayerLocation(Game.Direction SelectedDirection, GameBoard<string> MoveBoard, Player GamePlayer)
+        {
+            if (SelectedDirection == Game.Direction.North)
+            {
+                MoveBoard.Map[Row, Col] = null;
+                Row = Row;
+                Col --;
+                MoveBoard.Map[Row, Col] = GamePlayer.PlayerName;
+            }
+            else if (SelectedDirection == Game.Direction.South)
+            {
+                MoveBoard.Map[Row, Col] = null;
+                Row = Row;
+                Col++;
+                MoveBoard.Map[Row, Col] = GamePlayer.PlayerName;
+            }
+            else if (SelectedDirection == Game.Direction.East)
+            {
+                MoveBoard.Map[Row, Col] = null;
+                Col = Col;
+                Row++;
+                MoveBoard.Map[Row, Col] = GamePlayer.PlayerName;
+            }
+            else if (SelectedDirection == Game.Direction.West)
+            {
+                MoveBoard.Map[Row, Col] = null;
+                Col = Col;
+                Row--;
+                MoveBoard.Map[Row, Col] = GamePlayer.PlayerName;
+            }
+
+        }
     }
 }

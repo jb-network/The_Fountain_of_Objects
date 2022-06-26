@@ -45,17 +45,13 @@ namespace The_Fountain_of_Objects
             //End of set up
 
             //GameLoop - test movment loop
-            //while (true)
+            int x = 3;
+            while (x > 0)
             {
-                int UserMove = GameMenus.GetPlayerMove();
-                Direction MovePlayer = UserMove switch
-                {
-                    1 => Direction.North,
-                    2 => Direction.South,
-                    3 => Direction.East,
-                    4 => Direction.West,
-                };
-                //NEXT Pass direction to the MOVEPLAYER MethodUnder Tracker
+                Direction SelectedDirection = GameMenus.GetPlayerMove();
+                Console.WriteLine(SelectedDirection);
+                Tracker.UpdatePlayerLocation(SelectedDirection, MoveBoard, GamePlayer);
+                x--;
             }
 
 
@@ -70,8 +66,8 @@ namespace The_Fountain_of_Objects
 
             
 
-            Console.ReadKey();
-
+            
+            
             //End of set up
             
 

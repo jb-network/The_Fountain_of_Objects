@@ -27,7 +27,7 @@ namespace The_Fountain_of_Objects
 
         }
 
-        public int GetPlayerMove()
+        public Game.Direction GetPlayerMove()
         {
             int GetMove;
             Console.WriteLine("Please select a Direction to move");
@@ -36,7 +36,17 @@ namespace The_Fountain_of_Objects
             Console.WriteLine("3 - Move East");
             Console.WriteLine("4 - Move West");
             GetMove = Convert.ToInt16(Console.ReadLine());
-            return GetMove;
+            
+            Game.Direction UserMove = GetMove switch
+            {
+                1 => Game.Direction.North,
+                2 => Game.Direction.South,
+                3 => Game.Direction.East,
+                4 => Game.Direction.West,
+            };
+
+            return UserMove;
+
         }
     }
 }
