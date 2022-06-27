@@ -12,7 +12,7 @@ namespace The_Fountain_of_Objects
                 Console.WriteLine(" 1 - Small Map (4x4)");
                 Console.WriteLine(" 2 - Medium Map (6x6)");
                 Console.WriteLine(" 3 - Large Map (8x8)");
-               UserSelection = Convert.ToInt16(Console.ReadLine());
+                UserSelection = Convert.ToInt16(Console.ReadLine());
                 Console.Clear();
             }while (UserSelection < 0 && UserSelection < 3);
             return UserSelection;
@@ -49,7 +49,7 @@ namespace The_Fountain_of_Objects
 
         }
 
-        internal void EntranceChoice()
+        internal bool EntranceChoice(Fountain GameFoutain, DialogTree GameDialog, bool Gameover, Player PlayerName)
         {
             int EntChoice;
             do
@@ -67,12 +67,26 @@ namespace The_Fountain_of_Objects
             } while (EntChoice != 1 && EntChoice != 2);
             if (EntChoice == 1)
             {
-                Console.WriteLine("MAY ADD WIN/LOSE CHECK");
-                System.Environment.Exit(1);
+                //Win Lose Message
+                if(GameFoutain.FountainStatus == Game.FountainStatus.enabled) 
+                { 
+                    GameDialog.OnExitWin(PlayerName);
+                    return Gameover = true;
+                    
+                }
+                else //Foutain Status disabled
+                {
+                    GameDialog.OnExitLose(PlayerName);
+                    return Gameover = true;
+                }             
             }
             else
             {
-                Console.WriteLine("Have fun exploring more");
+                Console.WriteLine("You decided that it is not yet time to leave");
+                Console.WriteLine("Press any key to try again");
+                Console.ReadKey();
+                Console.Clear();
+                return Gameover = false;
             }
         }
 
@@ -102,24 +116,39 @@ namespace The_Fountain_of_Objects
             {
                 GameFoutain.FountainStatus = Game.FountainStatus.enabled;
                 Dialog.FoutainTurnon();
+                Console.WriteLine("Press any key to make your next move");
+                Console.ReadKey();
+                Console.Clear();
             }
             else if(FoutainChoice == 1 && GameFoutain.FountainStatus == Game.FountainStatus.enabled)
                 {
                 Console.WriteLine("The foutain is aleady turned on, you just need to find your way out of the cave");
-                }
+                Console.WriteLine("Press any key to make your next move");
+                Console.ReadKey();
+                Console.Clear();
+            }
             else if (FoutainChoice == 2 && GameFoutain.FountainStatus == Game.FountainStatus.enabled)
             {
                 GameFoutain.FountainStatus = Game.FountainStatus.disabled;
                 Dialog.FoutainTurnoff();
+                Console.WriteLine("Press any key to make your next move");
+                Console.ReadKey();
+                Console.Clear();
             }
             else if (FoutainChoice == 2 && GameFoutain.FountainStatus == Game.FountainStatus.disabled)
             {
-                Console.WriteLine("The only sound coming from the foutian is a slow drip.");
+                Console.WriteLine("The only sound coming from the foutain is a slow drip.");
                 Console.WriteLine("The foutain is aleady turned off");
+                Console.WriteLine("Press any key to make your next move");
+                Console.ReadKey();
+                Console.Clear();
             }
             else //Player chooses not to interact with foutain
             {
                 Console.WriteLine("You choose to ignore the foutain for now");
+                Console.WriteLine("Press any key to make your next move");
+                Console.ReadKey();
+                Console.Clear();
             }
 
         }

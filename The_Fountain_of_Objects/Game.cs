@@ -8,6 +8,7 @@ namespace The_Fountain_of_Objects
             //Var List
             Direction SelectedDirection;
             bool LegalMove = false;
+            bool GameOver = false;
 
             //Foutain object created;
             Fountain GameFoutain = new Fountain(FountainStatus.disabled);
@@ -56,12 +57,12 @@ namespace The_Fountain_of_Objects
 
             //End of set up
 
-            //GameLoop - test movment loop
-            int x = 9; //REMOVE AFTER TESTING
-            while (x > 0) //CHANGE TO WHILE TRUE AFTER TESTING
+            //GameLoop            
+            while (GameOver == false)
             {
                 do {
                     //Checks for moves that will go outside of the array bounds
+                    
                     SelectedDirection = GameMenus.GetPlayerMove();
                     LegalMove = Tracker.LegalMoveCheck(SelectedDirection, PlayerTracker, MoveBoard, Dialog);
                 } while (LegalMove == false);
@@ -77,32 +78,16 @@ namespace The_Fountain_of_Objects
                 if (TagInput == RoomType.Entry)
                 {
                     DialogTree.EntranceMessage();
-                    GameMenus.EntranceChoice();
+                    GameOver = GameMenus.EntranceChoice(GameFoutain, Dialog, GameOver, GamePlayer);
                 }
                 else if (TagInput == RoomType.Fountain)
                 {
                     DialogTree.FoutainRoom(GameFoutain);
                     GameMenus.FoutainChoice(GameFoutain, Dialog);
 
-                }
-                
-                Console.WriteLine("Press any key to make your next move");
-                Console.ReadKey();
-                Console.Clear();
-                x--; //REMOVE AFTER TESTING
-            }
-
-            //New Idea Testing Area
-            Console.WriteLine("Test Break Point Here");
-
-            
-
-            
-            
-
-            
-
-        }
+                }              
+            }                           
+    }
         public enum RoomType { Regular, Fountain, Entry }
         public enum Direction { North, South, East, West}
         public enum FountainStatus { enabled, disabled }

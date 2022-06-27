@@ -27,21 +27,21 @@ namespace The_Fountain_of_Objects
 
             if (TagBoard.Map.Length == 16)
             {
-                int RndRow = DiceRoll.Next(0, 0); //set back to 2,3
-                int RndCol = DiceRoll.Next(1, 1);
-                TagBoard.Map[RndRow, RndCol] = Game.RoomType.Fountain;
+                int FoutainRndRow = DiceRoll.Next(2, 3); 
+                int FoutainRndCol = DiceRoll.Next(2, 3);
+                TagBoard.Map[FoutainRndRow, FoutainRndCol] = Game.RoomType.Fountain;
             }
             else if (TagBoard.Map.Length == 36)
             {
-                int RndRow = DiceRoll.Next(2, 5);
-                int RndCol = DiceRoll.Next(2, 5);
-                TagBoard.Map[RndRow, RndCol] = Game.RoomType.Fountain;
+                int FoutainRndRow = DiceRoll.Next(2, 5);
+                int FoutainRndCol = DiceRoll.Next(2, 5);
+                TagBoard.Map[FoutainRndRow, FoutainRndCol] = Game.RoomType.Fountain;
             }
             else
             {
-                int RndRow = DiceRoll.Next(2, 7);
-                int RndCol = DiceRoll.Next(2, 7);
-                TagBoard.Map[RndRow, RndCol] = Game.RoomType.Fountain;
+                int FoutainRndRow = DiceRoll.Next(2, 7);
+                int FoutainRndCol = DiceRoll.Next(2, 7);
+                TagBoard.Map[FoutainRndRow, FoutainRndCol] = Game.RoomType.Fountain;
             }
         }
 
