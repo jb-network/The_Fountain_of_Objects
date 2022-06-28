@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -91,6 +91,27 @@ namespace The_Fountain_of_Objects
             }
             else return true;
         }
+
+        internal static void SoundCheck((int PlayerRow, int PlayerCol) playerTracker, GameBoard<Game.RoomType> tagBoard, Player GamePlayer, DialogTree Dialog)
+        {
+            foreach (Game.RoomType type in Enum.GetValues(typeof(Game.RoomType)))
+            {
+
+
+                if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol - 1] == type ||
+                    tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol - 1] == type ||
+                    tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol] == type ||
+                    tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol + 1] == type ||
+                    tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol + 1] == type ||
+                    tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol + 1] == type ||
+                    tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol] == type ||
+                    tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol - 1] == type &&
+                    type == Game.RoomType.Pit) Dialog.Pit();
+                
+            }
+        }
+
+
     }
 }
 
