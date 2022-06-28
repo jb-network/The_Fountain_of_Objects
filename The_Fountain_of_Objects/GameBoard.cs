@@ -14,51 +14,127 @@ namespace The_Fountain_of_Objects
             Map = new TSetBoard[rows, columns];
         }
         //Tags Rooms
-        public static void TagLocations(GameBoard<Game.RoomType> TagBoard, Random DiceRoll)
-        {            
-            for (int Row = 0; Row < TagBoard.Map.GetLength(0); Row++)
+        public static void TagLocations(GameBoard<Game.RoomType> TagBoard, Game.RoomType BoardRoomType, Random DiceRoll)
+        {
+            if (BoardRoomType == Game.RoomType.Entry)
             {
-                for (int Col = 0; Col < TagBoard.Map.GetLength(1); Col++)
+                int row = 0;
+                int col = 0;
+                TagBoard.Map[row, col] = Game.RoomType.Entry;
+            }
+            else if (BoardRoomType == Game.RoomType.Fountain)
+            {
+                int row = 0;
+                int col = 0;
+                bool GoodTarget = false;
+                (int RowRng1, int RowRng2, int ColRng1, int ColRng2, int Multiple) Settings = SetBoardRnds(TagBoard, BoardRoomType);
+
+                do
                 {
-                    TagBoard.Map[Row, Col] = Game.RoomType.Regular;
+                    row = DiceRoll.Next(Settings.RowRng1, Settings.RowRng2);
+                    col = DiceRoll.Next(Settings.ColRng1, Settings.ColRng2);
+                    if (TagBoard.Map[row, col] == Game.RoomType.Regular) GoodTarget = true;
+                } while (GoodTarget == false);
+                TagBoard.Map[row, col] = Game.RoomType.Fountain;
+            }
+            else if (BoardRoomType == Game.RoomType.Pit)
+            {
+                int row = 0;
+                int col = 0;
+                bool GoodTarget = false;
+                (int RowRng1, int RowRng2, int ColRng1, int ColRng2, int Multiple) Settings = SetBoardRnds(TagBoard, BoardRoomType);
+                for (int i = 0; i < Settings.Multiple; i++)
+                {
+                    do
+                    {
+                        row = DiceRoll.Next(Settings.RowRng1, Settings.RowRng2);
+                        col = DiceRoll.Next(Settings.ColRng1, Settings.ColRng2);
+                        if (TagBoard.Map[row, col] == Game.RoomType.Regular) GoodTarget = true;
+                    } while (GoodTarget == false);
+                    TagBoard.Map[row, col] = Game.RoomType.Pit;
                 }
             }
-            TagBoard.Map[0, 0] = Game.RoomType.Entry;
+            else if (BoardRoomType == Game.RoomType.Maelstrom)
+            {
+                int row = 0;
+                int col = 0;
+                bool GoodTarget = false;
+                (int RowRng1, int RowRng2, int ColRng1, int ColRng2, int Multiple) Settings = SetBoardRnds(TagBoard, BoardRoomType);
+                for (int i = 0; i < Settings.Multiple; i++)
+                {
+                    do
+                    {
+                        row = DiceRoll.Next(Settings.RowRng1, Settings.RowRng2);
+                        col = DiceRoll.Next(Settings.ColRng1, Settings.ColRng2);
+                        if (TagBoard.Map[row, col] == Game.RoomType.Regular) GoodTarget = true;
+                    } while (GoodTarget == false);
+                    TagBoard.Map[row, col] = Game.RoomType.Maelstrom;
+                }
+            }
+            else if (BoardRoomType == Game.RoomType.Amarok)
+            {
+                int row = 0;
+                int col = 0;
+                bool GoodTarget = false;
+                (int RowRng1, int RowRng2, int ColRng1, int ColRng2, int Multiple) Settings = SetBoardRnds(TagBoard, BoardRoomType);
+                for (int i = 0; i < Settings.Multiple; i++)
+                {
+                    do
+                    {
+                        row = DiceRoll.Next(Settings.RowRng1, Settings.RowRng2);
+                        col = DiceRoll.Next(Settings.ColRng1, Settings.ColRng2);
+                        if (TagBoard.Map[row, col] == Game.RoomType.Regular) GoodTarget = true;
+                    } while (GoodTarget == false);
+
+                    TagBoard.Map[row, col] = Game.RoomType.Amarok;
+                }
+            }
+            else {/*not needed at this time*/ }
+        }
+
+        //set number of items in map based on room type
+        public static (int, int, int, int, int) SetBoardRnds(GameBoard<Game.RoomType> TagBoard, Game.RoomType RoomType)
+        {
+            (int row1, int row2, int col1, int col2, int Multiple) targetrnds;
 
             if (TagBoard.Map.Length == 16)
             {
-                int FoutainRndRow = DiceRoll.Next(2, 3); 
-                int FoutainRndCol = DiceRoll.Next(2, 3);
-                TagBoard.Map[FoutainRndRow, FoutainRndCol] = Game.RoomType.Fountain;
+                if (RoomType == Game.RoomType.Fountain) return targetrnds = (1, 2, 2, 3, 1);
+                else if (RoomType == Game.RoomType.Pit) return targetrnds = (0, 3, 0, 3, 1);
+                else if (RoomType == Game.RoomType.Maelstrom) return targetrnds = (0, 3, 0, 3, 1);
+                else return targetrnds = (0, 3, 0, 3, 1); //amarok
             }
             else if (TagBoard.Map.Length == 36)
             {
-                int FoutainRndRow = DiceRoll.Next(2, 5);
-                int FoutainRndCol = DiceRoll.Next(2, 5);
-                TagBoard.Map[FoutainRndRow, FoutainRndCol] = Game.RoomType.Fountain;
+                if (RoomType == Game.RoomType.Fountain) return targetrnds = (1, 4, 2, 4, 1);
+                else if (RoomType == Game.RoomType.Pit) return targetrnds = (0, 5, 0, 5, 2);
+                else if (RoomType == Game.RoomType.Maelstrom) return targetrnds = (0, 5, 0, 5, 1);
+                else return targetrnds = (0, 5, 0, 5, 2); //amarok
             }
-            else
+            else if (TagBoard.Map.Length == 64)
             {
-                int FoutainRndRow = DiceRoll.Next(2, 7);
-                int FoutainRndCol = DiceRoll.Next(2, 7);
-                TagBoard.Map[FoutainRndRow, FoutainRndCol] = Game.RoomType.Fountain;
+                if (RoomType == Game.RoomType.Fountain) return targetrnds = (1, 6, 2, 6, 1);
+                else if (RoomType == Game.RoomType.Pit) return targetrnds = (0, 7, 0, 7, 4);
+                else if (RoomType == Game.RoomType.Maelstrom) return targetrnds = (0, 7, 0, 7, 2);
+                else return targetrnds = (0, 7, 0, 7, 3); //amarok
             }
+            else return targetrnds = (0, 0, 0, 0, 0); //FailSafe
         }
-
         internal Game.RoomType CheckRoomType(GameBoard<Game.RoomType> tagBoard, (int PlayerRow, int PlayerCol) playerTracker)
         {
             if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Entry)
             {
-                
+
                 return Game.RoomType.Entry;
 
             }
-            else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Fountain) 
+            else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Fountain)
             {
                 return Game.RoomType.Fountain;
             }
-                
+
             else return Game.RoomType.Regular; //REMOVE
         }
     }
+            
 }
