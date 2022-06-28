@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -113,6 +113,13 @@ namespace The_Fountain_of_Objects
             Console.WriteLine("Press any key to end the game");
             Console.ReadKey();
             Console.Clear();
+        }
+        public void Pit()
+        {
+            Console.WriteLine("You feel a warm draft, and smell the scent of stale air.");
+            Console.WriteLine("There is a pit in a near by room");
+            
+
         }
     }
 }
