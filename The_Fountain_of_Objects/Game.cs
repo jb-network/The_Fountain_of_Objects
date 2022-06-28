@@ -66,6 +66,9 @@ namespace The_Fountain_of_Objects
                 //GameLoop            
                 while (GameOver == false)
                 {
+                    //Sound here
+                    GameTracker.SoundCheck(PlayerTracker, TagBoard, GamePlayer, Dialog);
+
                     do {
                         //Checks for moves that will go outside of the array bounds
 
