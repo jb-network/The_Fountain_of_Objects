@@ -135,6 +135,13 @@ namespace The_Fountain_of_Objects
             Console.WriteLine("\nYou hear the growling and groaning of a maelstrom nearby.");
             Console.ResetColor();
         }
+        public void TransitionToMove()
+        {
+            Console.WriteLine("\nYou do not hear, smell or feel anything additional from the nearby rooms");
+            Console.WriteLine("Press any key to make your next move");
+            Console.ReadKey();
+            Console.Clear();
+        }
     }
 }
 

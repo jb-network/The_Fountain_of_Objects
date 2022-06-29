@@ -63,10 +63,8 @@ namespace The_Fountain_of_Objects
                 {
                     //Sound here
                     GameTracker.SoundCheck(PlayerTracker, TagBoard, GamePlayer, Dialog);
-                    Console.WriteLine("\nYou do not hear, smell or feel anything additional from the near by rooms");
-                    Console.WriteLine("Press any key to make your next move");
-                    Console.ReadKey();
-                    Console.Clear();
+                    Dialog.TransitionToMove();
+
                     do {
                         //Checks for moves that will go outside of the array bounds
 
