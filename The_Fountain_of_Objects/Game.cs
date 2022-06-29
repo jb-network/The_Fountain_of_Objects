@@ -40,6 +40,8 @@ namespace The_Fountain_of_Objects
                     2 => new GameBoard<RoomType>(6, 6),
                     3 => new GameBoard<RoomType>(8, 8),
                 };
+                
+                //Auto-SudoRandom tag deployment
                 GameBoard<RoomType>.TagLocations(TagBoard, RoomType.Entry, DiceRoll);
                 GameBoard<RoomType>.TagLocations(TagBoard, RoomType.Fountain, DiceRoll);
                 GameBoard<RoomType>.TagLocations(TagBoard, RoomType.Pit, DiceRoll);
@@ -57,7 +59,7 @@ namespace The_Fountain_of_Objects
                 GameTracker Tracker = new GameTracker(0, 0, GamePlayer, MoveBoard, PlayerTracker);
 
                 //End of set up
-
+                Console.ReadKey(); //BREAKPOINT REMOVE
                 //GameLoop            
                 while (GameOver == false)
                 {
@@ -89,7 +91,12 @@ namespace The_Fountain_of_Objects
                     {
                         DialogTree.FoutainRoom(GameFoutain);
                         GameMenus.FoutainChoice(GameFoutain, Dialog);
-
+                    }
+                    //Updating
+                    else if (TagInput == RoomType.Maelstrom)
+                    {
+                        Dialog.MaelstromRoom();
+                        //GameMaelstrom.MaelstromEffect(PlayerName);
                     }
                 }
             }

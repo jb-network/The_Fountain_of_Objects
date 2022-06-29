@@ -60,7 +60,7 @@ namespace The_Fountain_of_Objects
                 int col = 0;
                 bool GoodTarget = false;
                 (int RowRng1, int RowRng2, int ColRng1, int ColRng2, int Multiple) Settings = SetBoardRnds(TagBoard, BoardRoomType);
-                for (int i = 0; i < Settings.Multiple; i++)
+                for (int MaelstromNumber = 0; MaelstromNumber < Settings.Multiple; MaelstromNumber++)
                 {
                     do
                     {
@@ -77,7 +77,7 @@ namespace The_Fountain_of_Objects
                 int col = 0;
                 bool GoodTarget = false;
                 (int RowRng1, int RowRng2, int ColRng1, int ColRng2, int Multiple) Settings = SetBoardRnds(TagBoard, BoardRoomType);
-                for (int i = 0; i < Settings.Multiple; i++)
+                for (int AmarokNumber = 0; AmarokNumber < Settings.Multiple; AmarokNumber++)
                 {
                     do
                     {
@@ -122,17 +122,9 @@ namespace The_Fountain_of_Objects
         }
         internal Game.RoomType CheckRoomType(GameBoard<Game.RoomType> tagBoard, (int PlayerRow, int PlayerCol) playerTracker)
         {
-            if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Entry)
-            {
-
-                return Game.RoomType.Entry;
-
-            }
-            else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Fountain)
-            {
-                return Game.RoomType.Fountain;
-            }
-
+            if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Entry) return Game.RoomType.Entry;
+            else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Fountain) return Game.RoomType.Fountain;
+            else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Maelstrom) return Game.RoomType.Maelstrom;
             else return Game.RoomType.Regular; //REMOVE
         }
     }

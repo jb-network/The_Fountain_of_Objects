@@ -142,6 +142,24 @@ namespace The_Fountain_of_Objects
             Console.ReadKey();
             Console.Clear();
         }
+        public void MaelstromRoom()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("\nYou have entered a room with a Maelstrom");
+            Console.WriteLine("The fearsome creature howls in the dark");
+            Console.WriteLine("The ear piecering sound shakes the room");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("A Flash of light appears");
+            //check for other item
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("The Maelstrom has teleported you to a new location");
+            Console.ResetColor();
+            Console.WriteLine("Its common knowledge that Maelstroms retreat after generating a teleporting howl attack ");
+            Console.WriteLine("The creature has moved to a new space, and you have no idea where you now are");
+            Console.WriteLine("You think to yourself sarcastically...Well this should be fun...");
+            Console.ReadKey();
+            Console.Clear();
+        }
     }
 }
 
