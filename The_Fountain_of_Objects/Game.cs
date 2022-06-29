@@ -1,4 +1,3 @@
-
 namespace The_Fountain_of_Objects
 {
     public class Game
@@ -96,7 +95,7 @@ namespace The_Fountain_of_Objects
                     else if (TagInput == RoomType.Maelstrom)
                     {
                         Dialog.MaelstromRoom();
-                        //GameMaelstrom.MaelstromEffect(PlayerName);
+                        //Maelstrom.MaelstromActions(PlayerTracker,PlayerName, MoveBoard ;
                     }
                 }
             }
