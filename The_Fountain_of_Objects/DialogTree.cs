@@ -116,14 +116,24 @@ namespace The_Fountain_of_Objects
         }
         public void Pit()
         {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("\nYou feel a warm draft, and smell the scent of stale air.");
             Console.WriteLine("There is a pit in a near by room");
+            Console.ResetColor();
 
         }
         public void Amaork()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("\nYou smell the stench of an amarok nearby.");
+            Console.ResetColor();
 
+        }
+        public void Maelstrom()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("\nYou hear the growling and groaning of a maelstrom nearby.");
+            Console.ResetColor();
         }
     }
 }

@@ -69,7 +69,9 @@ namespace The_Fountain_of_Objects
                 {
                     //Sound here
                     GameTracker.SoundCheck(PlayerTracker, TagBoard, GamePlayer, Dialog);
-
+                    Console.WriteLine("\nPress any key to make your next move");
+                    Console.ReadKey();
+                    Console.Clear();
                     do {
                         //Checks for moves that will go outside of the array bounds
 

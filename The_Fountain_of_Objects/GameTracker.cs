@@ -102,67 +102,116 @@ namespace The_Fountain_of_Objects
                     if (tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol - 1] == type && type == Game.RoomType.Pit)
                     {
                         Dialog.Pit();
+                        continue;
                     }
                     else if (tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol - 1] == type && type == Game.RoomType.Amarok)
                     {
-                    Dialog.Amaork();
+                        Dialog.Amaork();
+                        continue;
+                    }
+                    else if (tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol - 1] == type && type == Game.RoomType.Maelstrom)
+                    {
+                        Dialog.Maelstrom();
+                        continue;
                     }
 
                 if (playerTracker.PlayerRow + 1 < tagBoard.Map.GetLength(0))
                     if (tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol] == type && type == Game.RoomType.Pit)
                     {
-                        Dialog.Pit();                        
+                        Dialog.Pit();
+                        continue;
                     }
                     else if (tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol] == type && type == Game.RoomType.Amarok)
                     {
                         Dialog.Amaork();
+                        continue;
+                    }
+                    else if (tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol] == type && type == Game.RoomType.Maelstrom)
+                    {
+                        Dialog.Maelstrom();
+                        continue;
                     }
                 if (playerTracker.PlayerRow + 1 < tagBoard.Map.GetLength(0) && playerTracker.PlayerCol + 1 < tagBoard.Map.GetLength(1))
                     if (tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol + 1] == type && type == Game.RoomType.Pit)
                     {
                         Dialog.Pit();
+                        continue;
                     }
                     else if (tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol + 1] == type && type == Game.RoomType.Amarok)
                     {
                         Dialog.Amaork();
+                        continue;
+                    }
+                    else if (tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol + 1] == type && type == Game.RoomType.Maelstrom)
+                    {
+                        Dialog.Maelstrom();
+                        continue;
                     }
                 if (playerTracker.PlayerCol + 1 < tagBoard.Map.GetLength(1))
                     if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol + 1] == type && type == Game.RoomType.Pit)
                     {
                         Dialog.Pit();
+                        continue;
                     }
                     else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol + 1] == type && type == Game.RoomType.Amarok)
                     {
                         Dialog.Amaork();
+                        continue;
+                    }
+                    else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol + 1] == type && type == Game.RoomType.Maelstrom)
+                    {
+                        Dialog.Maelstrom();
+                        continue;
                     }
                 if (playerTracker.PlayerRow - 1 >= 0 && playerTracker.PlayerCol + 1 < tagBoard.Map.GetLength(1))
                     if (tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol + 1] == type && type == Game.RoomType.Pit)
                     {
                         Dialog.Pit();
+                        continue;
                     }
                     else if (tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol + 1] == type && type == Game.RoomType.Amarok)
                     {
                         Dialog.Amaork();
+                        continue;
+                    }
+                    else if (tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol + 1] == type && type == Game.RoomType.Maelstrom)
+                    {
+                        Dialog.Maelstrom();
+                        continue;
                     }
                 if (playerTracker.PlayerRow - 1 >= 0)
                     if (tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol] == type && type == Game.RoomType.Pit)
                     {
-                        Dialog.Pit();                        
+                        Dialog.Pit();
+                        continue;
                     }
                     else if (tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol] == type && type == Game.RoomType.Amarok)
                     {
                         Dialog.Amaork();
+                        continue;
+                    }
+                    else if (tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol] == type && type == Game.RoomType.Maelstrom)
+                    {
+                        Dialog.Maelstrom();
+                        continue;
                     }
                 if (playerTracker.PlayerRow - 1 >= 0 && playerTracker.PlayerCol - 1 >= 0)
                     if (tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol - 1] == type && type == Game.RoomType.Pit)
                     {
-                        Dialog.Pit();                        
+                        Dialog.Pit();
+                        continue;
                     }
                     else if (tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol - 1] == type && type == Game.RoomType.Amarok)
                     {
                         Dialog.Amaork();
+                        continue;
                     }
-                //else break;
+                    else if (tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol - 1] == type && type == Game.RoomType.Maelstrom)
+                    {
+                        Dialog.Maelstrom();
+                        continue;
+                    }
+
 
 
 
