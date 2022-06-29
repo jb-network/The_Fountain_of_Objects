@@ -157,6 +157,7 @@ namespace The_Fountain_of_Objects
             Console.WriteLine("Its common knowledge that Maelstroms retreat after generating a teleporting howl attack ");
             Console.WriteLine("The creature has moved to a new space, and you have no idea where you now are");
             Console.WriteLine("You think to yourself sarcastically...Well this should be fun...");
+            Console.WriteLine("Press any key to make your next move");
             Console.ReadKey();
             Console.Clear();
         }
