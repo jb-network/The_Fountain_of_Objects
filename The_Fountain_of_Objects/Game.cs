@@ -12,6 +12,7 @@ namespace The_Fountain_of_Objects
                 Direction SelectedDirection;
                 bool LegalMove = false;
                 bool GameOver = false;
+                
 
                 //Foutain object created;
                 Fountain GameFoutain = new Fountain(FountainStatus.disabled);

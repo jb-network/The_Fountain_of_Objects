@@ -116,9 +116,13 @@ namespace The_Fountain_of_Objects
         }
         public void Pit()
         {
-            Console.WriteLine("You feel a warm draft, and smell the scent of stale air.");
+            Console.WriteLine("\nYou feel a warm draft, and smell the scent of stale air.");
             Console.WriteLine("There is a pit in a near by room");
-            
+
+        }
+        public void Amaork()
+        {
+            Console.WriteLine("\nYou smell the stench of an amarok nearby.");
 
         }
     }
