@@ -64,11 +64,10 @@ namespace The_Fountain_of_Objects
                 PlayerTracker.PlayerCol = Col;
                 return PlayerTracker;
             }
-
         }
+
         internal bool LegalMoveCheck(Game.Direction SelectedDirection, (int PlayerRow, int PlayerCol) playerTracker, GameBoard<string> MoveBoard, DialogTree Dialog)
         {
-
             if (SelectedDirection == Game.Direction.North && PlayerTracker.PlayerCol == 0)
             {
                 Dialog.WallMessage();
@@ -93,11 +92,9 @@ namespace The_Fountain_of_Objects
         }
 
         internal static void SoundCheck((int PlayerRow, int PlayerCol) playerTracker, GameBoard<Game.RoomType> tagBoard, Player GamePlayer, DialogTree Dialog)
-        {
-            
+        {            
             foreach (Game.RoomType type in Enum.GetValues(typeof(Game.RoomType)))
-            {
-                
+            {                
                 if (playerTracker.PlayerRow + 1 < tagBoard.Map.GetLength(0) && playerTracker.PlayerCol - 1 >= 0)
                     if (tagBoard.Map[playerTracker.PlayerRow + 1, playerTracker.PlayerCol - 1] == type && type == Game.RoomType.Pit)
                     {
@@ -211,19 +208,6 @@ namespace The_Fountain_of_Objects
                         Dialog.Maelstrom();
                         continue;
                     }
-
-
-
-
-
-
-
-
-
-
-                //tagBoard.Map[playerTracker.PlayerRow - 1, playerTracker.PlayerCol - 1] == type &&
-                //type == Game.RoomType.Pit) Dialog.Pit();
-
             }
         }
 

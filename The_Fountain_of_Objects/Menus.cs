@@ -25,7 +25,6 @@ namespace The_Fountain_of_Objects
             Console.Clear();
             if (GetPlayerName == null || GetPlayerName == "") GetPlayerName = "Player";
             return GetPlayerName;
-
         }
         public Game.Direction GetPlayerMove()
         {
@@ -44,11 +43,9 @@ namespace The_Fountain_of_Objects
                 3 => Game.Direction.East,
                 4 => Game.Direction.West,
             };
-
             return UserMove;
 
         }
-
         internal bool EntranceChoice(Fountain GameFoutain, DialogTree GameDialog, bool Gameover, Player PlayerName)
         {
             int EntChoice;
@@ -94,8 +91,7 @@ namespace The_Fountain_of_Objects
         {
             int FoutainChoice;
             do
-            {
-                
+            {                
                 Console.WriteLine("\n*******************************************************");
                 Console.WriteLine($"The Foutain is currently {GameFoutain.FountainStatus}");
                 Console.WriteLine("*******************************************************");

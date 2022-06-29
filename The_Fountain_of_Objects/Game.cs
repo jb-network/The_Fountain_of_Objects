@@ -4,16 +4,12 @@ namespace The_Fountain_of_Objects
     public class Game
     {
         public void NewGame()
-        {
-         
-        
+        {      
             {
                 //Var List
                 Direction SelectedDirection;
                 bool LegalMove = false;
-                bool GameOver = false;
-               
-
+                bool GameOver = false;           
 
                 //Foutain object created;
                 Fountain GameFoutain = new Fountain(FountainStatus.disabled);
@@ -50,7 +46,6 @@ namespace The_Fountain_of_Objects
                 GameBoard<RoomType>.TagLocations(TagBoard, RoomType.Maelstrom, DiceRoll);
                 GameBoard<RoomType>.TagLocations(TagBoard, RoomType.Amarok, DiceRoll);
                 
-
                 //Menu to get user name from the Player
                 string PlayerName = GameMenus.GetPlayerName();
 
@@ -60,8 +55,6 @@ namespace The_Fountain_of_Objects
                 //Build Tracker object, intialize to location 0,0
                 (int PlayerRow, int PlayerCol) PlayerTracker = (0, 0);
                 GameTracker Tracker = new GameTracker(0, 0, GamePlayer, MoveBoard, PlayerTracker);
-
-
 
                 //End of set up
 
@@ -101,8 +94,8 @@ namespace The_Fountain_of_Objects
 
                     }
                 }
+            }
         }
-    }
         public enum RoomType { Regular, Fountain, Entry, Pit, Maelstrom, Amarok }
         public enum Direction { North, South, East, West}
         public enum FountainStatus { enabled, disabled }
