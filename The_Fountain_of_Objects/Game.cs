@@ -12,7 +12,8 @@ namespace The_Fountain_of_Objects
                 Direction SelectedDirection;
                 bool LegalMove = false;
                 bool GameOver = false;
-                
+               
+
 
                 //Foutain object created;
                 Fountain GameFoutain = new Fountain(FountainStatus.disabled);
@@ -69,7 +70,8 @@ namespace The_Fountain_of_Objects
                 {
                     //Sound here
                     GameTracker.SoundCheck(PlayerTracker, TagBoard, GamePlayer, Dialog);
-                    Console.WriteLine("\nPress any key to make your next move");
+                    Console.WriteLine("\nYou do not hear, smell or feel anything additional from the near by rooms");
+                    Console.WriteLine("Press any key to make your next move");
                     Console.ReadKey();
                     Console.Clear();
                     do {
