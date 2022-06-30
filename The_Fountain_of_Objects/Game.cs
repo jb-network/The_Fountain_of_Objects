@@ -95,7 +95,9 @@ namespace The_Fountain_of_Objects
                     else if (TagInput == RoomType.Maelstrom)
                     {
                         Dialog.MaelstromRoom();
-                        //Maelstrom.MaelstromActions(PlayerTracker,PlayerName, MoveBoard ;
+                        Maelstrom.MaelstromActionsMoster(PlayerTracker, TagBoard, DiceRoll);
+                        PlayerTracker = Maelstrom.MaelstromActionsPlayer(PlayerTracker, TagBoard, MoveBoard, DiceRoll, GameOver, GamePlayer);
+                        
                     }
                 }
             }
