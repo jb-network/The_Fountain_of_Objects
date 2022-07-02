@@ -27,8 +27,8 @@ namespace The_Fountain_of_Objects
             if (SelectedDirection == Game.Direction.North)
             {
                 MoveBoard.Map[Row, Col] = null;
-                Row = Row;
-                Col --;
+                Row --;
+                Col = Col;
                 MoveBoard.Map[Row, Col] = GamePlayer.PlayerName;
                 PlayerTracker.PlayerRow = Row;
                 PlayerTracker.PlayerCol = Col;
@@ -37,8 +37,8 @@ namespace The_Fountain_of_Objects
             else if (SelectedDirection == Game.Direction.South)
             {
                 MoveBoard.Map[Row, Col] = null;
-                Row = Row;
-                Col++;
+                Row ++;
+                Col = Col;
                 MoveBoard.Map[Row, Col] = GamePlayer.PlayerName;
                 PlayerTracker.PlayerRow = Row;
                 PlayerTracker.PlayerCol = Col;
@@ -47,8 +47,8 @@ namespace The_Fountain_of_Objects
             else if (SelectedDirection == Game.Direction.East)
             {
                 MoveBoard.Map[Row, Col] = null;
-                Col = Col;
-                Row++;
+                Col ++;
+                Row = Row;
                 MoveBoard.Map[Row, Col] = GamePlayer.PlayerName;
                 PlayerTracker.PlayerRow = Row;
                 PlayerTracker.PlayerCol = Col;
@@ -57,8 +57,8 @@ namespace The_Fountain_of_Objects
             else //West
             {
                 MoveBoard.Map[Row, Col] = null;
-                Col = Col;
-                Row--;
+                Col --;
+                Row = Row;
                 MoveBoard.Map[Row, Col] = GamePlayer.PlayerName;
                 PlayerTracker.PlayerRow = Row;
                 PlayerTracker.PlayerCol = Col;
@@ -68,22 +68,22 @@ namespace The_Fountain_of_Objects
 
         internal bool LegalMoveCheck(Game.Direction SelectedDirection, (int PlayerRow, int PlayerCol) playerTracker, GameBoard<string> MoveBoard, DialogTree Dialog)
         {
-            if (SelectedDirection == Game.Direction.North && PlayerTracker.PlayerCol == 0)
+            if (SelectedDirection == Game.Direction.North && PlayerTracker.PlayerRow == 0)
             {
                 Dialog.WallMessage();
                 return false;
             }
-            else if (SelectedDirection == Game.Direction.West && PlayerTracker.PlayerRow == 0)
+            else if (SelectedDirection == Game.Direction.West && PlayerTracker.PlayerCol == 0)
             {
                 Dialog.WallMessage();
                 return false;
             }
-            else if (SelectedDirection == Game.Direction.South && PlayerTracker.PlayerCol == MoveBoard.Map.GetLength(1)-1)
+            else if (SelectedDirection == Game.Direction.South && PlayerTracker.PlayerRow == MoveBoard.Map.GetLength(1)-1)
             {
                 Dialog.WallMessage();
                 return false;
             }
-            else if (SelectedDirection == Game.Direction.East && PlayerTracker.PlayerRow == MoveBoard.Map.GetLength(0)-1)
+            else if (SelectedDirection == Game.Direction.East && PlayerTracker.PlayerCol == MoveBoard.Map.GetLength(0)-1)
             {
                 Dialog.WallMessage();
                 return false;

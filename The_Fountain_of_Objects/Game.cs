@@ -89,6 +89,8 @@ namespace The_Fountain_of_Objects
                         PlayerTracker = Maelstrom.MaelstromActionsPlayer(PlayerTracker, TagBoard, MoveBoard, DiceRoll, GameOver, GamePlayer);
 
                     }
+                    //Room Check after Maelstrom - Check for change
+                     TagInput = TagBoard.CheckRoomType(TagBoard, PlayerTracker);
 
                     if (TagInput == RoomType.Entry)
                     {
