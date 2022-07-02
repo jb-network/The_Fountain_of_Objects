@@ -21,13 +21,42 @@ namespace The_Fountain_of_Objects
                     
 
                 Game.RoomType CheckMap = TagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol];
-                    if (CheckMap == Game.RoomType.Entry) Console.WriteLine("Update with Entry message");
-                    else if (CheckMap == Game.RoomType.Fountain) Console.WriteLine("Update with Fountain Message");
-                    else if (CheckMap == Game.RoomType.Maelstrom) Console.WriteLine("Update with Maelstorm Message");
-                    else if (CheckMap == Game.RoomType.Amarok) Console.WriteLine("Update with Amarok Message");
-                    else if (CheckMap == Game.RoomType.Pit) Console.WriteLine("Update with Pit Message");
-                    else Console.WriteLine("Update with regular room message");
-                    return playerTracker;
+                if (CheckMap == Game.RoomType.Entry)
+                {
+                    Console.WriteLine("You find yourself teleported to the cave enterance");
+                   // DialogTree.EntranceMessage();
+                   // GameOver = GameMenus.EntranceChoice(GameFoutain, Dialog, GameOver, GamePlayer);
+
+                }
+                else if (CheckMap == Game.RoomType.Fountain)
+                {
+                    Console.WriteLine("You find yourself teleported to the foutain room");
+                   // DialogTree.FoutainRoom(GameFoutain);
+                   // GameMenus.FoutainChoice(GameFoutain, Dialog);
+                }
+
+                else if (CheckMap == Game.RoomType.Maelstrom)
+                {
+                    Console.WriteLine("You find yourself teleported to another Maelstrom...strange, what are the odds");
+                   // DialogTree.MaelstromRoom();
+                   // Maelstrom.MaelstromActionsMoster(PlayerTracker, TagBoard, DiceRoll);
+                    // PlayerTracker = Maelstrom.MaelstromActionsPlayer(PlayerTracker, TagBoard, MoveBoard, DiceRoll, GameOver, GamePlayer);
+                }
+                else if (CheckMap == Game.RoomType.Amarok)
+                {
+                    Console.WriteLine("You find yourself teleported into a room with an Amarok");
+                    //DialogTree.AmarokRoom( GameOver,GamePlayer);
+                }
+                else if (CheckMap == Game.RoomType.Pit)
+                {
+                    Console.WriteLine("You find yourself teleported into a room with a pit trap");
+                    //DialogTree.PitRoom(GameOver, GamePlayer);
+                }
+                else Console.WriteLine("Your very luck, you found yourself teleported into an empty room");
+                {
+
+                }
+                return playerTracker;
                 
                 
             }
