@@ -142,7 +142,7 @@ namespace The_Fountain_of_Objects
             Console.ReadKey();
             Console.Clear();
         }
-        public void MaelstromRoom()
+        public static void MaelstromRoom()
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("\nYou have entered a room with a Maelstrom");
@@ -161,6 +161,45 @@ namespace The_Fountain_of_Objects
             Console.ReadKey();
             Console.Clear();
         }
+        public static bool PitRoom(bool GameOver, Player GamePlayer)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("\nYou have fallen into a deep dark pit");
+            Console.WriteLine("As you fall, you feel several woodenspikes pierce your body on the way down");
+            Console.WriteLine("You take one last breath, as a forever darkness covers you eyes");
+            Console.WriteLine("You have died a painful death in a dark pit...alone and forgotten");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"You will always be remembered as {GamePlayer.PlayerName} the broken");
+            Console.WriteLine("You Game is over, and you have lost");
+            Console.WriteLine("The Kingdom is lost to the darkness, you have failed in your quest");
+            Console.ResetColor();
+            Console.WriteLine("Press any key to end the game");
+            Console.ReadKey();
+            Console.Clear();
+            GameOver = true;
+            return GameOver;
+
+        }
+        public static bool AmarokRoom(bool GameOver, Player GamePlayer)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("\nYou walk into the next room and hear a deep growl");
+            Console.WriteLine("A creature bites your arm and then your neck");
+            Console.WriteLine("You feel pain and sadness as you become a snack for an Amarok");
+            Console.WriteLine("You have died a sad, empty death as dog food");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"You will always be remembered as {GamePlayer.PlayerName} Food of Dogs");
+            Console.WriteLine("You Game is over, and you have lost");
+            Console.WriteLine("The Kingdom is lost to the darkness, you have failed in your quest");
+            Console.ResetColor();
+            Console.WriteLine("Press any key to end the game");
+            Console.ReadKey();
+            Console.Clear();
+            GameOver = true;
+            return GameOver;
+
+        }
     }
 }
+
 
