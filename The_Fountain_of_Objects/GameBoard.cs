@@ -125,6 +125,8 @@ namespace The_Fountain_of_Objects
             if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Entry) return Game.RoomType.Entry;
             else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Fountain) return Game.RoomType.Fountain;
             else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Maelstrom) return Game.RoomType.Maelstrom;
+            else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Pit) return Game.RoomType.Pit;
+            else if (tagBoard.Map[playerTracker.PlayerRow, playerTracker.PlayerCol] == Game.RoomType.Amarok) return Game.RoomType.Amarok;
             else return Game.RoomType.Regular; //REMOVE
         }
     }
