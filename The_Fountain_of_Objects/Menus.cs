@@ -34,6 +34,7 @@ namespace The_Fountain_of_Objects
             Console.WriteLine("2 - Move South");
             Console.WriteLine("3 - Move East");
             Console.WriteLine("4 - Move West");
+
             int GetMove = Convert.ToInt16(Console.ReadLine());
             
             Game.Direction UserMove = GetMove switch
