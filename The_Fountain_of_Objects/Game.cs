@@ -81,6 +81,15 @@ namespace The_Fountain_of_Objects
                     RoomType TagInput = TagBoard.CheckRoomType(TagBoard, PlayerTracker);
 
                     //RoomType Actions
+
+                    if (TagInput == RoomType.Maelstrom)
+                    {
+                        DialogTree.MaelstromRoom();
+                        Maelstrom.MaelstromActionsMoster(PlayerTracker, TagBoard, DiceRoll);
+                        PlayerTracker = Maelstrom.MaelstromActionsPlayer(PlayerTracker, TagBoard, MoveBoard, DiceRoll, GameOver, GamePlayer);
+
+                    }
+
                     if (TagInput == RoomType.Entry)
                     {
                         DialogTree.EntranceMessage();
@@ -91,13 +100,15 @@ namespace The_Fountain_of_Objects
                         DialogTree.FoutainRoom(GameFoutain);
                         GameMenus.FoutainChoice(GameFoutain, Dialog);
                     }
-                    //Updating
-                    else if (TagInput == RoomType.Maelstrom)
+                    else if (TagInput == RoomType.Pit)
                     {
-                        Dialog.MaelstromRoom();
-                        Maelstrom.MaelstromActionsMoster(PlayerTracker, TagBoard, DiceRoll);
-                        PlayerTracker = Maelstrom.MaelstromActionsPlayer(PlayerTracker, TagBoard, MoveBoard, DiceRoll, GameOver, GamePlayer);
-                        
+                        GameOver = DialogTree.PitRoom(GameOver, GamePlayer);
+
+                    }
+                    else if (TagInput == RoomType.Amarok)
+                    {
+                        GameOver = DialogTree.AmarokRoom(GameOver, GamePlayer);
+
                     }
                 }
             }
