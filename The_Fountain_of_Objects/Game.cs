@@ -8,7 +8,10 @@ namespace The_Fountain_of_Objects
                 //Var List
                 Direction SelectedDirection;
                 bool LegalMove = false;
-                bool GameOver = false;           
+                bool GameOver = false;      
+                
+                //Track start time for Level 32 "Time in the Cavern" challenge
+                DateTime GameTimeStart = DateTime.Now;
 
                 //Foutain object created;
                 Fountain GameFoutain = new Fountain(FountainStatus.disabled);
@@ -112,8 +115,14 @@ namespace The_Fountain_of_Objects
                         GameOver = DialogTree.AmarokRoom(GameOver, GamePlayer);
 
                     }
+
                 }
-            }
+                //Track end time for Level 32 "Time in the Cavern" challenge
+                DateTime GameTimeEnd = DateTime.Now;
+                TimeSpan TotalGameTime = GameTimeEnd - GameTimeStart;
+                Console.WriteLine($"The total time spent during this run: {TotalGameTime.Hours} Hours {TotalGameTime.Minutes} Minutes {TotalGameTime.Seconds} Seconds");
+                Console.WriteLine($"Thanks for playing {PlayerName}!");
+            } 
         }
         public enum RoomType { Regular, Fountain, Entry, Pit, Maelstrom, Amarok }
         public enum Direction { North, South, East, West}
